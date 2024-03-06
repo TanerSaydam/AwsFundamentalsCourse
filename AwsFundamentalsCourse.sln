@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.SQS", "1.SQS", "{CE9DD4CF-7232-4196-9D37-52DD224AABD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQSPublisher", "1.SQS\SQSPublisher\SQSPublisher.csproj", "{726C729A-24B8-4BF4-8564-E8E9782E910D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQSPublisher", "1.SQS\SQSPublisher\SQSPublisher.csproj", "{726C729A-24B8-4BF4-8564-E8E9782E910D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQSConsumer", "1.SQS\SQSConsumer\SQSConsumer.csproj", "{A73C77D5-7A37-4E7A-8BEA-BB4BD2679786}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +19,17 @@ Global
 		{726C729A-24B8-4BF4-8564-E8E9782E910D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{726C729A-24B8-4BF4-8564-E8E9782E910D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{726C729A-24B8-4BF4-8564-E8E9782E910D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A73C77D5-7A37-4E7A-8BEA-BB4BD2679786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A73C77D5-7A37-4E7A-8BEA-BB4BD2679786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A73C77D5-7A37-4E7A-8BEA-BB4BD2679786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A73C77D5-7A37-4E7A-8BEA-BB4BD2679786}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{726C729A-24B8-4BF4-8564-E8E9782E910D} = {CE9DD4CF-7232-4196-9D37-52DD224AABD6}
+		{A73C77D5-7A37-4E7A-8BEA-BB4BD2679786} = {CE9DD4CF-7232-4196-9D37-52DD224AABD6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A36B4018-E36B-4129-A1E0-2459F54C933B}
