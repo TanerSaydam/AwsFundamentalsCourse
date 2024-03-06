@@ -33,6 +33,8 @@ public sealed class ReceiveMessage
                 await Console.Out.WriteLineAsync($"Message Id {msg.MessageId}");
                 T? data = JsonSerializer.Deserialize<T>(msg.Body);
 
+                throw new ArgumentException("Something went wrong");
+
                 await sqsClient.DeleteMessageAsync(queueUrlResponse.QueueUrl, msg.ReceiptHandle);
             }
 
