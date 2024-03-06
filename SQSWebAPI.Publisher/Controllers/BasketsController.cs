@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SQSWebAPI.Publisher.Messaging;
 using SQSWebAPI.Publisher.Models;
 
 namespace SQSWebAPI.Publisher.Controllers;
 [Route("api/[controller]/[action]")]
 [ApiController]
-public class BasketsController : ControllerBase
+public class BasketsController(
+    SendMessage sqs) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> CreateOrder()
@@ -28,6 +30,7 @@ public class BasketsController : ControllerBase
         //DB İşlemleri
 
         //Mail Gönderme
+        await sqs.SendMessageAsync(orders);
 
         return Ok(new { Message = "Sipariş başarıyla oluşturuldu" });
     }
