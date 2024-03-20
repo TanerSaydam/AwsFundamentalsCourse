@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SQSWebAPI.Publisher.Messaging;
 using SQSWebAPI.Publisher.Models;
+using System.Text;
 
 namespace SQSWebAPI.Publisher.Controllers;
 [Route("api/[controller]/[action]")]
@@ -25,7 +26,8 @@ public class BasketsController(
             };
 
             orders.Add(order);
-            await sqs.SendMessageAsync(order);
+            string value = order.Quantity == 1 ? "true" : "false";
+            await sqs.SendMessageAsync(order, value);
         }
 
         //DB İşlemleri

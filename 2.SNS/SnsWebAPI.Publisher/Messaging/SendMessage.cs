@@ -7,7 +7,7 @@ namespace SQSWebAPI.Publisher.Messaging;
 public sealed class SendMessage(
     IAmazonSimpleNotificationService snsClient)
 {
-    public async Task<PublishResponse> SendMessageAsync<T>(T message, CancellationToken cancellationToken = default)
+    public async Task<PublishResponse> SendMessageAsync<T>(T message, string value, CancellationToken cancellationToken = default)
     {
         var topicArnResponse = await snsClient.FindTopicAsync("customers");
 
@@ -21,7 +21,7 @@ public sealed class SendMessage(
                     "MessageType", new MessageAttributeValue
                     {
                         DataType = "String",
-                        StringValue = typeof(T).Name
+                        StringValue = value
                     }
                 }
             }
