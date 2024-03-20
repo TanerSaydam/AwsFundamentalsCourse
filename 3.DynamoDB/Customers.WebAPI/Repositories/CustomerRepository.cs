@@ -1,22 +1,76 @@
-﻿using Customers.WebAPI.DTOs;
+﻿using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.DocumentModel;
+using Amazon.DynamoDBv2.Model;
+using Customers.WebAPI.DTOs;
+using Customers.WebAPI.Models;
+using System.Net;
+using System.Text.Json;
 
 namespace Customers.WebAPI.Repositories;
 
-public sealed class CustomerRepository
+public sealed class CustomerRepository(
+    IAmazonDynamoDB dynamoDb)
 {
-    public async Task<bool> CreateAsync(CreateCustomerDto customer)
+
+    private readonly string tableName = "customers";
+    public async Task<bool> CreateAsync(CreateCustomerDto request)
     {
-        throw new NotImplementedException();
+        Customer customer = new()
+        {
+            Address = request.Address,
+            Name = request.Name
+        };
+
+        var customerAsJson = JsonSerializer.Serialize(customer);
+        var customerAsAttributes = Document.FromJson(customerAsJson).ToAttributeMap();
+
+        var createItemRequest = new PutItemRequest
+        {
+            TableName = tableName,
+            Item = customerAsAttributes,
+            ConditionExpression = "attribute_not_exists(pk) and attribute_not_exists(sk)"
+        };
+
+        var response = await dynamoDb.PutItemAsync(createItemRequest);
+        return response.HttpStatusCode == HttpStatusCode.OK;
     }
 
-    public async Task<bool> UpdateAsync(UpdateCustomerDto customer)
+    public async Task<bool> UpdateAsync(UpdateCustomerDto request)
     {
-        throw new NotImplementedException();
+        Customer customer = new()
+        {
+            Id = request.Id,
+            Address = request.Address,
+            Name = request.Name
+        };
+
+        var customerAsJson = JsonSerializer.Serialize(customer);
+        var customerAsAttributes = Document.FromJson(customerAsJson).ToAttributeMap();
+
+        var updateItemRequest = new PutItemRequest
+        {
+            TableName = tableName,
+            Item = customerAsAttributes           
+        };
+
+        var response = await dynamoDb.PutItemAsync(updateItemRequest);
+        return response.HttpStatusCode == HttpStatusCode.OK;
     }
 
     public async Task<bool> DeleteByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var deletedItemRequest = new DeleteItemRequest
+        {
+            TableName = tableName,
+            Key = new Dictionary<string, AttributeValue>
+            {
+                { "pk", new AttributeValue { S = id.ToString()} },
+                { "sk", new AttributeValue { S = id.ToString()} },
+            }
+        };
+
+        var response = await dynamoDb.DeleteItemAsync(deletedItemRequest);
+        return response.HttpStatusCode == HttpStatusCode.OK;
     }
 
     public async Task<IEnumerable<CustomerDto>> GetAllAsync()
