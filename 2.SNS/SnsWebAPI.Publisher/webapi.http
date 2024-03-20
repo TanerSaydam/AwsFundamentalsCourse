@@ -1,0 +1,6 @@
+@SQSWebAPI.Publisher_HostAddress = http://localhost:5200
+
+GET {{SQSWebAPI.Publisher_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
