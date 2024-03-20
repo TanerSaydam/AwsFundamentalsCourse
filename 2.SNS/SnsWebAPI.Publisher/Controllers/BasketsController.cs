@@ -26,8 +26,8 @@ public class BasketsController(
             };
 
             orders.Add(order);
-            string value = order.Quantity == 1 ? "true" : "false";
-            await sqs.SendMessageAsync(order, value);
+            //string value = order.Quantity == 1 ? "true" : "false";
+            await sqs.SendMessageAsync(order, "false");
         }
 
         //DB İşlemleri
