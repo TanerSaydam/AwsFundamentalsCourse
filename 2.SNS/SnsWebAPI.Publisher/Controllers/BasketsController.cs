@@ -25,12 +25,13 @@ public class BasketsController(
             };
 
             orders.Add(order);
+            await sqs.SendMessageAsync(order);
         }
 
         //DB İşlemleri
 
         //Mail Gönderme
-        await sqs.SendMessageAsync(orders);
+        
 
         return Ok(new { Message = "Sipariş başarıyla oluşturuldu" });
     }
