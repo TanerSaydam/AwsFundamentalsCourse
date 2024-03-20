@@ -1,20 +1,20 @@
-﻿using Amazon.SQS;
-using Amazon.SQS.Model;
+﻿using Amazon.SimpleNotificationService;
+using Amazon.SimpleNotificationService.Model;
 using System.Text.Json;
 
 namespace SQSWebAPI.Publisher.Messaging;
 
 public sealed class SendMessage(
-    IAmazonSQS sqsClient)
+    IAmazonSimpleNotificationService snsClient)
 {
-    public async Task<SendMessageResponse> SendMessageAsync<T>(T message, CancellationToken cancellationToken = default)
+    public async Task<PublishResponse> SendMessageAsync<T>(T message, CancellationToken cancellationToken = default)
     {
-        var queueUrlResponse = await sqsClient.GetQueueUrlAsync("customers", cancellationToken);
+        var topicArnResponse = await snsClient.FindTopicAsync("customers");
 
-        var sendMessageRequest = new SendMessageRequest
+        var publishRequest = new PublishRequest
         {
-            QueueUrl = queueUrlResponse.QueueUrl,
-            MessageBody = JsonSerializer.Serialize(message),
+            TopicArn = topicArnResponse.TopicArn,
+            Message = JsonSerializer.Serialize(message),
             MessageAttributes = new Dictionary<string, MessageAttributeValue>
             {
                 {
@@ -27,7 +27,7 @@ public sealed class SendMessage(
             }
         };
 
-        var response = await sqsClient.SendMessageAsync(sendMessageRequest, cancellationToken);
+        var response = await snsClient.PublishAsync(publishRequest);
 
         return response;
     }
