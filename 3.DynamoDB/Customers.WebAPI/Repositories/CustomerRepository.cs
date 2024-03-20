@@ -75,6 +75,15 @@ public sealed class CustomerRepository(
 
     public async Task<IEnumerable<CustomerDto>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        var scanRequest = new ScanRequest
+        {
+            TableName = tableName
+        };
+        var response = await dynamoDb.ScanAsync(scanRequest);
+        return response.Items.Select(s =>
+        {
+            var json = Document.FromAttributeMap(s).ToJson();
+            return JsonSerializer.Deserialize<CustomerDto>(json);
+        })!;
     }
 }
