@@ -17,7 +17,7 @@ public sealed class CustomerRepository(
     {
         Customer customer = new()
         {
-            Address = request.Address,
+            Email = request.Email,
             Name = request.Name
         };
 
@@ -40,7 +40,7 @@ public sealed class CustomerRepository(
         Customer customer = new()
         {
             Id = request.Id,
-            Address = request.Address,
+            Email = request.Email,
             Name = request.Name,
             UpdatedAt = DateTime.UtcNow,
         };
@@ -93,5 +93,29 @@ public sealed class CustomerRepository(
             var json = Document.FromAttributeMap(s).ToJson();
             return JsonSerializer.Deserialize<CustomerDto>(json);
         })!;
+    }
+
+    public async Task<Customer?> GetByEmailAsync(string email)
+    {
+        var queryRequest = new QueryRequest
+        {
+            TableName = tableName,
+            IndexName = "email-id-index",
+            KeyConditionExpression = "Email = :v_Email",
+            ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+            {
+                { ":v_Email", new AttributeValue { S = email}}
+            }
+        };
+
+        var response = await dynamoDb.QueryAsync(queryRequest);
+        if(response.Items.Count == 0)
+        {
+            return null;
+        }
+
+        var itemAsDocument = Document.FromAttributeMap(response.Items[0]);
+        var json = itemAsDocument.ToJson();
+        return JsonSerializer.Deserialize<Customer>(json);
     }
 }

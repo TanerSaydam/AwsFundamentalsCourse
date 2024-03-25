@@ -1,4 +1,5 @@
 ﻿using Customers.WebAPI.DTOs;
+using Customers.WebAPI.Models;
 using Customers.WebAPI.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,5 +41,13 @@ public sealed class CustomersController(
         IEnumerable<CustomerDto> customers  = await customerRepository.GetAllAsync();
 
         return Ok(customers);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetByEmail(string email)
+    {
+        Customer? customer = await customerRepository.GetByEmailAsync(email);
+
+        return Ok(customer);
     }
 }

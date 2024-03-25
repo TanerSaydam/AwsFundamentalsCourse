@@ -3,4 +3,4 @@
 public sealed record UpdateCustomerDto(
     Guid Id,
     string Name,
-    string Address);
+    string Email);

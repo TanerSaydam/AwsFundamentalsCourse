@@ -2,4 +2,4 @@
 
 public sealed record CreateCustomerDto(
     string Name,
-    string Address);
+    string Email);
