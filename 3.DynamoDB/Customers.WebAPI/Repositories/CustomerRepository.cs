@@ -35,13 +35,14 @@ public sealed class CustomerRepository(
         return response.HttpStatusCode == HttpStatusCode.OK;
     }
 
-    public async Task<bool> UpdateAsync(UpdateCustomerDto request)
+    public async Task<bool> UpdateAsync(UpdateCustomerDto request, DateTime requestStarted)
     {
         Customer customer = new()
         {
             Id = request.Id,
             Address = request.Address,
-            Name = request.Name
+            Name = request.Name,
+            UpdatedAt = DateTime.UtcNow,
         };
 
         var customerAsJson = JsonSerializer.Serialize(customer);
@@ -50,7 +51,14 @@ public sealed class CustomerRepository(
         var updateItemRequest = new PutItemRequest
         {
             TableName = tableName,
-            Item = customerAsAttributes           
+            Item = customerAsAttributes,
+            ConditionExpression = "UpdatedAt < :requestStarted",
+            ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+            {
+                {
+                    ":requestStarted", new AttributeValue{S = requestStarted.ToString("O")}
+                }
+            }
         };
 
         var response = await dynamoDb.PutItemAsync(updateItemRequest);

@@ -19,7 +19,8 @@ public sealed class CustomersController(
     [HttpPost]
     public async Task<IActionResult> Update(UpdateCustomerDto request)
     {
-        bool result = await customerRepository.UpdateAsync(request);
+        DateTime reqestStarted = DateTime.UtcNow;
+        bool result = await customerRepository.UpdateAsync(request, reqestStarted);
 
         return NoContent();
     }
