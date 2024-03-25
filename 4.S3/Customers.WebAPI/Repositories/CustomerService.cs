@@ -26,7 +26,13 @@ public class CustomerService(IAmazonS3 s3)
 
     public async Task<GetObjectResponse> GetImageAsync(Guid id)
     {
-        return null;
+        var getObjectRequest = new GetObjectRequest
+        {
+            BucketName = bucketName,
+            Key = $"images/{id}"
+        };
+
+        return await s3.GetObjectAsync(getObjectRequest);
     }
 
     public async Task<DeleteObjectResponse> DeleteImageAsync(Guid id)
