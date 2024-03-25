@@ -10,9 +10,9 @@ public class ValuesController : ControllerBase
 {
     private readonly ConnectionStringsOptions _options;
 
-    public ValuesController(IOptions<ConnectionStringsOptions> options)
+    public ValuesController(IOptionsMonitor<ConnectionStringsOptions> options)
     {
-        _options = options.Value;
+        _options = options.CurrentValue;
     }
 
     [HttpGet]
