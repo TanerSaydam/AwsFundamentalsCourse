@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3Playground", "4.S3\S3Play
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers.WebAPI", "4.S3\Customers.WebAPI\Customers.WebAPI.csproj", "{D729DA9D-8489-4668-8BD5-A3F1D6D7D9A8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.SecretsManager", "5.SecretsManager", "{310C06CB-0E2B-4D67-945F-A0E26821678F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecretsManager.ConsoleApp", "5.SecretsManager\SecretsManager.ConsoleApp\SecretsManager.ConsoleApp.csproj", "{04E457BF-86BB-4CB5-AD32-50E48A16542A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +87,10 @@ Global
 		{D729DA9D-8489-4668-8BD5-A3F1D6D7D9A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D729DA9D-8489-4668-8BD5-A3F1D6D7D9A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D729DA9D-8489-4668-8BD5-A3F1D6D7D9A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04E457BF-86BB-4CB5-AD32-50E48A16542A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04E457BF-86BB-4CB5-AD32-50E48A16542A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04E457BF-86BB-4CB5-AD32-50E48A16542A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04E457BF-86BB-4CB5-AD32-50E48A16542A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +107,7 @@ Global
 		{3B6F09A4-1754-4622-AD00-E0A886D0F705} = {92D5E926-5087-47C8-991C-5D5F616BA474}
 		{B43541FF-9E14-47D1-AE6B-FA2DADA8743E} = {9D44E70B-A5F1-4433-A072-39A2352C41D2}
 		{D729DA9D-8489-4668-8BD5-A3F1D6D7D9A8} = {9D44E70B-A5F1-4433-A072-39A2352C41D2}
+		{04E457BF-86BB-4CB5-AD32-50E48A16542A} = {310C06CB-0E2B-4D67-945F-A0E26821678F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A36B4018-E36B-4129-A1E0-2459F54C933B}
