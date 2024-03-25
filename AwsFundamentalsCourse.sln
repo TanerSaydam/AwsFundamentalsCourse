@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQSWebAPI.Publisher", "2.SN
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.DynamoDB", "3.DynamoDB", "{92D5E926-5087-47C8-991C-5D5F616BA474}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers.WebAPI", "3.DynamoDB\Customers.WebAPI\Customers.WebAPI.csproj", "{0672220A-12AA-4C8D-89C5-6EFC299BA04B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.WebAPI", "3.DynamoDB\Customers.WebAPI\Customers.WebAPI.csproj", "{0672220A-12AA-4C8D-89C5-6EFC299BA04B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.ConsoleApp", "3.DynamoDB\Transactions.ConsoleApp\Transactions.ConsoleApp.csproj", "{3B6F09A4-1754-4622-AD00-E0A886D0F705}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{0672220A-12AA-4C8D-89C5-6EFC299BA04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0672220A-12AA-4C8D-89C5-6EFC299BA04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0672220A-12AA-4C8D-89C5-6EFC299BA04B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B6F09A4-1754-4622-AD00-E0A886D0F705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B6F09A4-1754-4622-AD00-E0A886D0F705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B6F09A4-1754-4622-AD00-E0A886D0F705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B6F09A4-1754-4622-AD00-E0A886D0F705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{E96D4840-1382-4F34-ABA5-405FF1A5E26C} = {EC37BD1E-747A-4EE3-AE95-7E75282D20EE}
 		{04D52032-47E1-492A-82D8-888FFB53543B} = {EC37BD1E-747A-4EE3-AE95-7E75282D20EE}
 		{0672220A-12AA-4C8D-89C5-6EFC299BA04B} = {92D5E926-5087-47C8-991C-5D5F616BA474}
+		{3B6F09A4-1754-4622-AD00-E0A886D0F705} = {92D5E926-5087-47C8-991C-5D5F616BA474}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A36B4018-E36B-4129-A1E0-2459F54C933B}
