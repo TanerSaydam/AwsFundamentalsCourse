@@ -4,7 +4,7 @@ using Customers.WebAPI.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<IAmazonS3, AmazonS3Client>();
-builder.Services.AddScoped<CustomerRepository>();
+builder.Services.AddScoped<CustomerService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
