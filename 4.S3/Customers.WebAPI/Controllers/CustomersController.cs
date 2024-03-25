@@ -1,10 +1,9 @@
 ﻿using Customers.WebAPI.Repositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection.Metadata.Ecma335;
+using System.Net;
 
 namespace Customers.WebAPI.Controllers;
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
 [ApiController]
 public class CustomersController(CustomerService customerService) : ControllerBase
 {
@@ -27,5 +26,17 @@ public class CustomersController(CustomerService customerService) : ControllerBa
         {
             return NotFound();
         }
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var response = await customerService.DeleteImageAsync(id);
+        return response.HttpStatusCode switch
+        {
+            HttpStatusCode.NoContent => Ok(),
+            HttpStatusCode.NotFound => NotFound(),
+            _ => BadRequest()
+        };
     }
 }

@@ -37,6 +37,12 @@ public class CustomerService(IAmazonS3 s3)
 
     public async Task<DeleteObjectResponse> DeleteImageAsync(Guid id)
     {
-        return null;
+        var deleteObjectRequest = new DeleteObjectRequest
+        {
+            BucketName = bucketName,
+            Key = $"images/{id}"
+        };
+
+        return await s3.DeleteObjectAsync(deleteObjectRequest);
     }
 }
