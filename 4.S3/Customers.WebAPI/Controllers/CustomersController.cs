@@ -10,7 +10,8 @@ public class CustomersController(CustomerService customerService) : ControllerBa
     [HttpPost]
     public async Task<IActionResult> UploadImage([FromForm] UploadImageDto request)
     {
-        var response = await customerService.UploadImageAsync(Guid.NewGuid(), request.File);
+        var guidId = Guid.Parse("3c9ab646-647a-4013-b068-c7250f21c623");
+        var response = await customerService.UploadImageAsync(guidId, request.File);
         return Ok(response.HttpStatusCode);
     }
 
