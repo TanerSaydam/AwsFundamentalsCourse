@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\taner\\.dotnet\\tools\\dotnet-lambda-test-tool-8.0.exe",
+      "workingDirectory": "C:\\Test\\AwsFundamentalsCourse\\6.Lambda\\SimpleHttpLambda"
+    }
+  }
+}
