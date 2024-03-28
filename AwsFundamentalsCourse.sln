@@ -43,6 +43,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.Lambda", "6.Lambda", "{B4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLambda", "6.Lambda\SimpleLambda\src\SimpleLambda\SimpleLambda.csproj", "{74D240C3-E285-4A73-9E44-CF272557E538}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleHttpLambda", "6.Lambda\SimpleHttpLambda\src\SimpleHttpLambda\SimpleHttpLambda.csproj", "{DAC62491-642A-457B-9032-30504CF5EACB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{74D240C3-E285-4A73-9E44-CF272557E538}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74D240C3-E285-4A73-9E44-CF272557E538}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74D240C3-E285-4A73-9E44-CF272557E538}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAC62491-642A-457B-9032-30504CF5EACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC62491-642A-457B-9032-30504CF5EACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC62491-642A-457B-9032-30504CF5EACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC62491-642A-457B-9032-30504CF5EACB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,6 +130,7 @@ Global
 		{04E457BF-86BB-4CB5-AD32-50E48A16542A} = {310C06CB-0E2B-4D67-945F-A0E26821678F}
 		{9167264E-975B-4BA2-AD08-8B1890C36D3C} = {310C06CB-0E2B-4D67-945F-A0E26821678F}
 		{74D240C3-E285-4A73-9E44-CF272557E538} = {B4CA543B-9BC0-4BB1-9348-25645E905CBA}
+		{DAC62491-642A-457B-9032-30504CF5EACB} = {B4CA543B-9BC0-4BB1-9348-25645E905CBA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A36B4018-E36B-4129-A1E0-2459F54C933B}
