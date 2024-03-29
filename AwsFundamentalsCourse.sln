@@ -51,6 +51,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleSnsLambda", "6.Lambda
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDynamoDbLambda", "6.Lambda\SimpleDynamoDbLambda\src\SimpleDynamoDbLambda\SimpleDynamoDbLambda.csproj", "{3EB1209D-5230-4CDB-8EAC-14D7E3722510}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleS3Lambda", "6.Lambda\SimpleS3Lambda\src\SimpleS3Lambda\SimpleS3Lambda.csproj", "{065363A0-5C31-4555-A329-CE267A1BACC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{3EB1209D-5230-4CDB-8EAC-14D7E3722510}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EB1209D-5230-4CDB-8EAC-14D7E3722510}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EB1209D-5230-4CDB-8EAC-14D7E3722510}.Release|Any CPU.Build.0 = Release|Any CPU
+		{065363A0-5C31-4555-A329-CE267A1BACC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{065363A0-5C31-4555-A329-CE267A1BACC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{065363A0-5C31-4555-A329-CE267A1BACC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{065363A0-5C31-4555-A329-CE267A1BACC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -152,6 +158,7 @@ Global
 		{CFAD8F2B-6029-45CD-9E9D-1FA2E0D98A32} = {B4CA543B-9BC0-4BB1-9348-25645E905CBA}
 		{8AEB6D0A-90BB-42D7-B28B-C923A6476044} = {B4CA543B-9BC0-4BB1-9348-25645E905CBA}
 		{3EB1209D-5230-4CDB-8EAC-14D7E3722510} = {B4CA543B-9BC0-4BB1-9348-25645E905CBA}
+		{065363A0-5C31-4555-A329-CE267A1BACC2} = {B4CA543B-9BC0-4BB1-9348-25645E905CBA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A36B4018-E36B-4129-A1E0-2459F54C933B}

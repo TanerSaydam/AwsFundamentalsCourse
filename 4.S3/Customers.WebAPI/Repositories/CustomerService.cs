@@ -16,8 +16,8 @@ public class CustomerService(IAmazonS3 s3)
             InputStream = file.OpenReadStream(),
             Metadata =
             {
-                ["x-amz-mete-originalname"] = file.FileName,
-                ["x-amz-mete-extension"] = Path.GetExtension(file.FileName)
+                ["x-amz-meta-originalname"] = file.FileName,
+                ["x-amz-meta-extension"] = Path.GetExtension(file.FileName)
             }
         };
 
